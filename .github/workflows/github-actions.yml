@@ -9,8 +9,14 @@ jobs:
           uses: supercharge/mongodb-github-action@1.10.0
           with: 
             mongodb-version: '5.0'
-        - run: npm start
-        - run: npm run start:test
+        - name: Set up Node.js
+          uses: actions/setup-node@v3
+          with: 
+            node-version: '16'
+        - run: npm ci
+        - run: npm start & 
+        - run: npm run start:test &
+        - run: sleep 10
         - run: npm run lint
         - run: npm run test:unit
         - run: npm run test:integration
