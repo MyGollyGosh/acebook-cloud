@@ -5,7 +5,10 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-        - run: sudo service start mongodb-community@5.0
+        - name: start MongoDB
+          uses: supercharge/mongodb-github-action@1.10.0
+          with: 
+            mongodb-version: '5.0'
         - run: npm start
         - run: npm run start:test
         - run: npm run lint
