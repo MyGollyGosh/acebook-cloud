@@ -2,7 +2,7 @@ name: acebook-cloud-workflow
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: push
 jobs:
-  Explore-GitHub-Actions:
+  Run-tests:
     runs-on: ubuntu-latest
     steps:
         - name: Checkout repo
@@ -28,6 +28,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+        - name: Configure AWS credentials
+          uses: aws-actions/configure-aws-credentials@v1
+          with:
+            role-arn: arn:aws:iam::664047078509:role/splh-acebook-githubactions-deploy
         - run: aws s3 cp ./ s3://splh-acebook-bucket/
       
 
