@@ -31,7 +31,7 @@ jobs:
         - name: Configure AWS credentials
           uses: aws-actions/configure-aws-credentials@v1
           with:
-            role-arn: arn:aws:iam::664047078509:role/splh-acebook-githubactions-deploy
+            role-to-assume: arn:aws:iam::664047078509:role/splh-acebook-githubactions-deploy
         - run: aws s3 cp ./ s3://splh-acebook-bucket/
       
 
