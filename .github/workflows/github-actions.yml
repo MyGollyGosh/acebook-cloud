@@ -32,7 +32,7 @@ jobs:
           uses: aws-actions/configure-aws-credentials@v1
           with:
             role-to-assume: arn:aws:iam::664047078509:role/splh-acebook-githubactions-deploy
-            aws-region: ue-west-2
+            aws-region: eu-west-2
         - run: aws s3 cp ./ s3://splh-acebook-bucket/
       
 
